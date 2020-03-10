@@ -97,7 +97,12 @@ public class Complejo {
     }
     @Override
     public String toString() {
-        return "(" + parteReal + "," + parteImaginaria + ')';
+        if (parteImaginaria != 0.0){
+            return "(" + parteReal + "," + parteImaginaria + ')';
+        }else{
+            return String.valueOf(parteReal);
+        }
+        
     }
     
     public boolean equals(Complejo complejo){

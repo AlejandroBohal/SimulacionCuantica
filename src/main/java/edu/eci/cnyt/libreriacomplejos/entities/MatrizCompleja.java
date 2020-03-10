@@ -43,6 +43,20 @@ public class MatrizCompleja {
         this.matriz = matrizC.getMatriz();
     
     }
+    public MatrizCompleja(double[][] vector){
+        
+        MatrizCompleja matrizC = new MatrizCompleja(new ArrayList());
+        for (double[] vector1 : vector) {
+            VectorComplejo vectorAnadir = new VectorComplejo(new ArrayList());
+            for (double vector11 : vector1) {
+                Complejo complejoAnadir = new Complejo(vector11, 0.0);
+                vectorAnadir.add(complejoAnadir);
+            }
+            matrizC.add(vectorAnadir);
+        }
+        this.matriz = matrizC.getMatriz();
+    
+    }
     public MatrizCompleja sumar(MatrizCompleja matrizOperar) throws LibreriaComplejosException{
         for (int i=0;i<this.matriz.size();i++){
            matriz.set(i,matriz.get(i).sumar(matrizOperar.get(i)));

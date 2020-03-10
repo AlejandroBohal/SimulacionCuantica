@@ -7,6 +7,14 @@ package edu.eci.cnyt.clasicoacuantico.entities;
 
 import edu.eci.cnyt.libreriacomplejos.entities.MatrizCompleja;
 import edu.eci.cnyt.libreriacomplejos.exceptions.LibreriaComplejosException;
+import java.io.File;
+import java.io.IOException;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.chart.ChartUtilities;
 
 /**
  * Programming drill 3.1.1
@@ -39,10 +47,11 @@ public class SimuladorCuantico {
         auxEstadoFinal.setMatriz(estadoInicial.getMatriz());
         MatrizCompleja auxMatrizEstados  = new MatrizCompleja(estadoInicial.size(),estadoInicial.get(0).size());
         auxMatrizEstados.setMatriz(matrizEstados.getMatriz());
-        for (int i=0;i<numeroClicks-1;i++){
-            auxMatrizEstados.setMatriz(auxMatrizEstados.multiplicacion(auxMatrizEstados).getMatriz());
+        for (int i=0;i<numeroClicks;i++){
+            auxEstadoFinal.setMatriz(auxMatrizEstados.multiplicacion(auxEstadoFinal).getMatriz());
+            
         }
-        auxEstadoFinal.setMatriz(auxMatrizEstados.multiplicacion(auxEstadoFinal).getMatriz());
+        
         estadoActual.setMatriz(auxEstadoFinal.getMatriz());
         return auxEstadoFinal;
     }
@@ -72,6 +81,20 @@ public class SimuladorCuantico {
 
     public void setEstadoActual(MatrizCompleja estadoActual) {
         this.estadoActual = estadoActual;
+    }
+    public static void generarBarras(String titulo) throws IOException{
+       DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+       dataset.addValue(1, "hola", "mundo");
+       dataset.addValue(2, "hola", "mundo");
+       dataset.addValue(10, "hola", "mundo");
+       dataset.addValue(5, "hola", "mundo");
+       JFreeChart chart = ChartFactory.createBarChart("Ejemplo","X", "Y", dataset, PlotOrientation.VERTICAL, true, true, true);
+       ChartPanel panel = new ChartPanel(chart);
+       File dir = new File("graficasSimulaciones");
+       dir.mkdirs();
+       File tmp = new File(dir, titulo);
+       
+       ChartUtilities.saveChartAsJPEG(tmp, chart, 500, 400);
     }
     
 }
