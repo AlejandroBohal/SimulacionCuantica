@@ -24,6 +24,7 @@ public class SimuladorCuantico {
     private MatrizCompleja estadoInicial;
     private MatrizCompleja matrizEstados;
     private MatrizCompleja estadoActual;
+    private MatrizCompleja vectorProbabilidad;
     
     /**
      * Constructor con valores booleanos, reales o complejos.
@@ -82,6 +83,7 @@ public class SimuladorCuantico {
     public void setEstadoActual(MatrizCompleja estadoActual) {
         this.estadoActual = estadoActual;
     }
+    
     public static void generarBarras(String titulo) throws IOException{
        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
        dataset.addValue(1, "hola", "mundo");
@@ -95,6 +97,14 @@ public class SimuladorCuantico {
        File tmp = new File(dir, titulo);
        
        ChartUtilities.saveChartAsJPEG(tmp, chart, 500, 400);
+    }
+
+    public MatrizCompleja getVectorProbabilidad() {
+        return vectorProbabilidad;
+    }
+
+    public void setVectorProbabilidad(MatrizCompleja vectorProbabilidad) {
+        this.vectorProbabilidad = vectorProbabilidad;
     }
     
 }

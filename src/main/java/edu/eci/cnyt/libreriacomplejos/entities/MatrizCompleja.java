@@ -178,6 +178,25 @@ public class MatrizCompleja {
         
         return tensor;
     }
+    public double probabilidad(int posicion) throws LibreriaComplejosException{
+        MatrizCompleja vectorket = new MatrizCompleja(this.size(),this.get(0).size());
+        vectorket.setMatriz(this.getMatriz());
+        if(this.get(0).size() > 1){
+            throw new LibreriaComplejosException(LibreriaComplejosException.VECTOR_KET);
+        }else{
+            
+            double moduloPosicionI = Math.pow(vectorket.get(posicion).get(0).getParteImaginaria(), 2);
+            double moduloPosicionR = Math.pow(vectorket.get(posicion).get(0).getParteReal(), 2);
+            double moduloPosicion = moduloPosicionI + moduloPosicionR;
+            double sumatoriaModulos = 0.0;
+            for (int i=0; i<vectorket.size();i++){
+                sumatoriaModulos += Math.pow(vectorket.get(i).get(0).getParteImaginaria(),2);
+                sumatoriaModulos += Math.pow(vectorket.get(i).get(0).getParteReal(),2);
+            }
+            return Math.pow(Math.sqrt(moduloPosicion)/Math.sqrt(sumatoriaModulos),2);
+        }
+    }
+    
     public void add(VectorComplejo v){
         matriz.add(v);
     }
