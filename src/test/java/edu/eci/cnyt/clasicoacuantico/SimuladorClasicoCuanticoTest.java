@@ -17,7 +17,7 @@ import org.junit.Test;
  */
 public class SimuladorClasicoCuanticoTest {
     @Test
-    public void noDeberiaGenerarCanicas() throws LibreriaComplejosException{
+    public void noDeberiaGenerarCanicas() throws LibreriaComplejosException, IOException{
       double[][] matriz=
                    {{0,0,0,0,0,0},
                     {0,0,0,1,0,0},
@@ -34,9 +34,8 @@ public class SimuladorClasicoCuanticoTest {
       MatrizCompleja m = new MatrizCompleja(matriz);
       MatrizCompleja estado = new MatrizCompleja(estadoInicial);
       SimuladorCuantico s = new SimuladorCuantico(estado,m);
+      s.generarBarras("Canicas clasico");
       s.click(3000);
-      
-      
       
     }
     @Test
@@ -82,7 +81,7 @@ public class SimuladorClasicoCuanticoTest {
       System.out.println(s.getEstadoActual());
     }
     @Test
-    public void experimentoMultiplesRendijasClasico() throws LibreriaComplejosException{
+    public void experimentoMultiplesRendijasClasico() throws LibreriaComplejosException, IOException{
         double[][] matriz = {{0,0,0,0,0,0,0,0,0,0,0},
                              {(1.0/3.0),0,0,0,0,0,0,0,0,0,0},
                              {(1.0/3.0),0,0,0,0,0,0,0,0,0,0},
@@ -100,11 +99,12 @@ public class SimuladorClasicoCuanticoTest {
         
         SimuladorCuantico s = new SimuladorCuantico(vectorEstados,matrizC);
         s.click(5);
+        s.generarBarras("Multiples rendijas Clásico");
         System.out.println(s.getEstadoActual());
            
     }
     @Test
-    public void experimentoMultiplesRendijasCuantico() throws LibreriaComplejosException{
+    public void experimentoMultiplesRendijasCuantico() throws LibreriaComplejosException, IOException{
         double[][][] matriz = {{{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}}
                                 ,{{0,1.0/Math.sqrt(3.0)},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}},
                                 {{0,1.0/Math.sqrt(3.0)},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}},
@@ -122,10 +122,8 @@ public class SimuladorClasicoCuanticoTest {
         
         SimuladorCuantico s = new SimuladorCuantico(vectorEstados,matrizC);
         s.click(5);
+        s.generarBarras("Multiples rendijas Cuántico");
         System.out.println(s.getEstadoActual());
     }
-    @Test 
-    public void deberiaSacarGrafica() throws IOException{
-        SimuladorCuantico.generarBarras("Saludos.jpg");
-    }
+    
 }

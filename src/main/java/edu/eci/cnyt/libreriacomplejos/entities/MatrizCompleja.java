@@ -183,8 +183,7 @@ public class MatrizCompleja {
         vectorket.setMatriz(this.getMatriz());
         if(this.get(0).size() > 1){
             throw new LibreriaComplejosException(LibreriaComplejosException.VECTOR_KET);
-        }else{
-            
+        }else{          
             double moduloPosicionI = Math.pow(vectorket.get(posicion).get(0).getParteImaginaria(), 2);
             double moduloPosicionR = Math.pow(vectorket.get(posicion).get(0).getParteReal(), 2);
             double moduloPosicion = moduloPosicionI + moduloPosicionR;

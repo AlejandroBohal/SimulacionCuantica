@@ -7,6 +7,7 @@ package edu.eci.cnyt.clasicoacuantico.entities;
 
 import edu.eci.cnyt.libreriacomplejos.entities.MatrizCompleja;
 import edu.eci.cnyt.libreriacomplejos.exceptions.LibreriaComplejosException;
+import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 import org.jfree.chart.ChartFactory;
@@ -15,6 +16,9 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.Plot;
+import org.jfree.chart.renderer.category.BarRenderer;
 
 /**
  * Programming drill 3.1.1
@@ -59,6 +63,16 @@ public class SimuladorCuantico {
     public void volverAEstadoInicial(){
         estadoActual.setMatriz(estadoInicial.getMatriz());
     }
+    
+    
+    public MatrizCompleja genVectorProbabilidad() throws LibreriaComplejosException{
+        MatrizCompleja vector = new MatrizCompleja(this.getEstadoActual().size(),this.getEstadoActual().get(0).size());
+        for (int i=0; i<estadoActual.size(); i++){
+                vector.get(i).get(0).setParteReal(estadoActual.probabilidad(i));
+                vector.get(i).get(0).setParteImaginaria(0.0);
+        }
+        return vector;
+    }
    
     public MatrizCompleja getEstadoInicial() {
         return estadoInicial;
@@ -84,19 +98,27 @@ public class SimuladorCuantico {
         this.estadoActual = estadoActual;
     }
     
-    public static void generarBarras(String titulo) throws IOException{
+    public void generarBarras(String titulo) throws IOException, LibreriaComplejosException{
        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-       dataset.addValue(1, "hola", "mundo");
-       dataset.addValue(2, "hola", "mundo");
-       dataset.addValue(10, "hola", "mundo");
-       dataset.addValue(5, "hola", "mundo");
-       JFreeChart chart = ChartFactory.createBarChart("Ejemplo","X", "Y", dataset, PlotOrientation.VERTICAL, true, true, true);
+       MatrizCompleja probabilidad = this.genVectorProbabilidad();
+       for (int i=0; i<probabilidad.size(); i++){
+           double y = probabilidad.get(i).get(0).getParteReal();
+           String x = "x("+i+")";
+           dataset.addValue(y, x, x);
+       }
+       JFreeChart chart = ChartFactory.createBarChart(titulo,"Posición", "Probabilidad", dataset, PlotOrientation.VERTICAL, true, true, true);
        ChartPanel panel = new ChartPanel(chart);
-       File dir = new File("graficasSimulaciones");
-       dir.mkdirs();
-       File tmp = new File(dir, titulo);
+       BarRenderer renderer = (BarRenderer) chart.getCategoryPlot().getRenderer();
+       renderer.setItemMargin(-2);
+       Plot plot = chart.getPlot();
+       plot.setBackgroundPaint(new Color(255,255,255));
        
-       ChartUtilities.saveChartAsJPEG(tmp, chart, 500, 400);
+       File dir = new File("GraficasSimulaciones");
+       dir.mkdirs();
+       File tmp = new File(dir, titulo+".jpg");       
+       ChartUtilities.saveChartAsJPEG(tmp, chart, 800, 500);
+       
+       
     }
 
     public MatrizCompleja getVectorProbabilidad() {
