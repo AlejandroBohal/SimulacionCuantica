@@ -31,10 +31,10 @@ Test 2
  
 ### Gráficas
 Gráfica 1
-![](https://raw.githubusercontent.com/AlejandroBohal/SimulacionCuantica/master/GraficasSimulaciones/Canicas%20clasico.jpg)
+![](https://raw.githubusercontent.com/AlejandroBohal/SimulacionCuantica/master/GraficasSimulaciones/Canicas%20cl%C3%A1sico.jpg)
 
 Gráfica 2
-![](https://raw.githubusercontent.com/AlejandroBohal/SimulacionCuantica/master/GraficasSimulaciones/Canicas%20clasico2.jpg)
+![](https://raw.githubusercontent.com/AlejandroBohal/SimulacionCuantica/master/GraficasSimulaciones/Canicas%20cl%C3%A1sico2.jpg)
 
 ## Simulación múltiple rendija probabilística
 
@@ -45,18 +45,18 @@ Además de simular el experimento de la doble rendija, también se realizó la s
 
 ### Gráfica
 
-![](https://github.com/AlejandroBohal/SimulacionCuantica/blob/master/GraficasSimulaciones/MrClasico.jpg)
+![](https://raw.githubusercontent.com/AlejandroBohal/SimulacionCuantica/master/GraficasSimulaciones/M%C3%BAltiple%20rendija%20Cl%C3%A1sico.jpg)
 
 ## Simulación múltiple rendija cuántica
 
 En la simulación de las multiples rendijas cuántico se puede evidenciar claramente el patrón de interferencia en la posición del vector de probabilidades x7 ya que se cancela el componente por la historia del sistema en otros universos. 
 
 ### Test
-![](https://github.com/AlejandroBohal/SimulacionCuantica/blob/master/GraficasSimulaciones/rendijascuantico.png)
+![](https://raw.githubusercontent.com/AlejandroBohal/SimulacionCuantica/master/GraficasSimulaciones/rendijascuantico.png)
 
 ### Gráfica
 
-![](https://github.com/AlejandroBohal/SimulacionCuantica/blob/master/GraficasSimulaciones/MrCuantico.jpg)
+![](https://raw.githubusercontent.com/AlejandroBohal/SimulacionCuantica/master/GraficasSimulaciones/M%C3%BAltiple%20rendija%20Cu%C3%A1ntico.jpg)
 
 ## Simulación doble rendija probabilística y cuantica
 Una parte importante de la base de este simulador cuántico surge del problema de la doble rendija, cuya explicación y experimento se realizó en clase, observamos el patron generado por la doble rendija y además se realizón una simulación con la librería mencionada al principio y una descripción a profundidad.
