@@ -35,7 +35,7 @@ public class SimuladorClasicoCuanticoTest {
       MatrizCompleja estado = new MatrizCompleja(estadoInicial);
       SimuladorCuantico s = new SimuladorCuantico(estado,m);
       s.click(3000);
-      s.generarBarras("Canicas clasico");
+      s.generarBarras("Canicas clásico");
       
       
     }
@@ -58,7 +58,7 @@ public class SimuladorClasicoCuanticoTest {
       MatrizCompleja estado = new MatrizCompleja(estadoInicial);
       SimuladorCuantico s = new SimuladorCuantico(estado,m);
       s.click(2019);
-      s.generarBarras("Canicas clasico2");
+      s.generarBarras("Canicas clásico2");
       
     }
     @Test
@@ -101,7 +101,7 @@ public class SimuladorClasicoCuanticoTest {
         
         SimuladorCuantico s = new SimuladorCuantico(vectorEstados,matrizC);
         s.click(5);
-        s.generarBarras("MrClasico");
+        s.generarBarras("Múltiple rendija Clásico");
         
            
     }
@@ -124,7 +124,7 @@ public class SimuladorClasicoCuanticoTest {
         
         SimuladorCuantico s = new SimuladorCuantico(vectorEstados,matrizC);
         s.click(5);
-        s.generarBarras("MrCuantico");
+        s.generarBarras("Múltiple rendija Cuántico");
         
     }
     
