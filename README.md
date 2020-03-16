@@ -59,7 +59,7 @@ En la simulación de las multiples rendijas cuántico se puede evidenciar claram
 ![](https://raw.githubusercontent.com/AlejandroBohal/SimulacionCuantica/master/GraficasSimulaciones/M%C3%BAltiple%20rendija%20Cu%C3%A1ntico.jpg)
 
 ## Simulación doble rendija probabilística y cuantica
-Una parte importante de la base de este simulador cuántico surge del problema de la doble rendija, cuya explicación y experimento se realizó en clase, observamos el patron generado por la doble rendija y además se realizón una simulación con la librería mencionada al principio y una descripción a profundidad.
+Una parte importante de la base de este simulador cuántico surge del problema de la doble rendija, cuya explicación y experimento se realizó en clase, observamos el patron generado por la doble rendija y además se realizó una simulación con la librería mencionada al principio y una descripción a profundidad.
 
 ![](https://raw.githubusercontent.com/andresro30/ExperimentoDobleRendija-CNYT/master/imagenes/1.png)
 Para más información acerca de este experimento dirigirse a
