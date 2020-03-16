@@ -24,9 +24,9 @@ Se realizaron test para probar el respectivo funcionamiento de la simulación de
 Se realizó la simulación del sistema de canicas que se propuso en el texto guia, además se generaron las gráficas correspondientes del vector de probabilidadades.
 
 ### Tests
-Test 1
+
 ![](https://raw.githubusercontent.com/AlejandroBohal/SimulacionCuantica/master/GraficasSimulaciones/canicas.png)
-Test 2
+
 ![](https://raw.githubusercontent.com/AlejandroBohal/SimulacionCuantica/master/GraficasSimulaciones/canicas2.png)
  
 ### Gráficas
